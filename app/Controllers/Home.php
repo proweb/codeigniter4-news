@@ -6,6 +6,12 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $data['title']   = 'Казанский федеральный университет';
+        $data['description']   = 'Официальный сайт Казанского федерального университета';
+        return view(
+            'home', // View name
+            $data, // Passing data
+            ['cache' => 60] // Cache time
+        );
     }
 }
