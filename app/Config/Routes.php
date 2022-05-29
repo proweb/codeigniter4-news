@@ -17,10 +17,6 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
-$routes->setTranslateURIDashes(false);
-$routes->set404Override();
 $routes->setAutoRoute(false);
 
 /*
@@ -28,10 +24,13 @@ $routes->setAutoRoute(false);
  * Route Definitions
  * --------------------------------------------------------------------
  */
+$routes->get('/', 'Pages::index');
+// Remove home duplicate
+$routes->get('/home', function () {
+	return redirect()->to(base_url());
+});
+$routes->get('(:any)', 'Pages::view/$1');
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
 
 /*
  * --------------------------------------------------------------------
