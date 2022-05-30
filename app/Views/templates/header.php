@@ -10,7 +10,7 @@
         <h1><?= esc($title) ?></h1>
     </div>
 </header>
-<section class="uk-section">
+<section class="uk-section" uk-height-viewport="expand: true">
     <div class="uk-container">
 
 
