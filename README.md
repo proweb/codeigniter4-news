@@ -1,3 +1,3 @@
 # CodeIgniter 4 Application
  
-MVC framework example for PHP course
+PHP MVC framework example. Codeigniter 4 + UIkit.
