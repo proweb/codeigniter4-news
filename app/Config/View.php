@@ -3,7 +3,12 @@
 namespace Config;
 
 use CodeIgniter\Config\View as BaseView;
+use CodeIgniter\View\ViewDecoratorInterface;
 
+/**
+ * @phpstan-type parser_callable (callable(mixed): mixed)
+ * @phpstan-type parser_callable_string (callable(mixed): mixed)&string
+ */
 class View extends BaseView
 {
     /**
@@ -29,7 +34,8 @@ class View extends BaseView
      *  { title|esc(js) }
      *  { created_on|date(Y-m-d)|esc(attr) }
      *
-     * @var array
+     * @var         array<string, string>
+     * @phpstan-var array<string, parser_callable_string>
      */
     public $filters = [];
 
@@ -38,7 +44,36 @@ class View extends BaseView
      * by the core Parser by creating aliases that will be replaced with
      * any callable. Can be single or tag pair.
      *
-     * @var array
+     * @var         array<string, callable|list<string>|string>
+     * @phpstan-var array<string, list<parser_callable_string>|parser_callable_string|parser_callable>
      */
     public $plugins = [];
+
+    /**
+     * View Decorators are class methods that will be run in sequence to
+     * have a chance to alter the generated output just prior to caching
+     * the results.
+     *
+     * All classes must implement CodeIgniter\View\ViewDecoratorInterface
+     *
+     * @var list<class-string<ViewDecoratorInterface>>
+     */
+    public array $decorators = [];
+
+    /**
+     * Subdirectory within app/Views for namespaced view overrides.
+     *
+     * Namespaced views will be searched in:
+     *
+     *   app/Views/{$appOverridesFolder}/{Namespace}/{view_path}.{php|html...}
+     *
+     * This allows application-level overrides for package or module views
+     * without modifying vendor source files.
+     *
+     * Examples:
+     *   'overrides' -> app/Views/overrides/Example/Blog/post/card.php
+     *   'vendor'    -> app/Views/vendor/Example/Blog/post/card.php
+     *   ''          -> app/Views/Example/Blog/post/card.php (direct mapping)
+     */
+    public string $appOverridesFolder = 'overrides';
 }
