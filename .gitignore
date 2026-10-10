@@ -63,6 +63,11 @@ writable/uploads/*
 
 writable/debugbar/*
 
+# Local database files (dev)
+writable/*.db
+writable/*.sqlite*
+writable/*.sqlite3
+
 php_errors.log
 
 #-------------------------
@@ -125,4 +130,5 @@ nb-configuration.xml
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
+/.phpunit.cache/
 
