@@ -37,7 +37,7 @@ class News extends BaseController {
 	{
 		$model = model(NewsModel::class);
 		if (
-			$this->request->getMethod() === 'post' &&
+			$this->request->is('post') &&
 			$this->validate([
 				'title' => 'required|min_length[3]|max_length[255]',
 				'body' => 'required',
