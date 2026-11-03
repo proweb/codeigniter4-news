@@ -1,0 +1,53 @@
+name: Bug report
+description: Сообщите об ошибке, чтобы мы могли её исправить
+title: "[Bug]: "
+labels: ["🐛 bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо, что нашли ошибку!
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание ошибки
+      description: Чётко и кратко опишите, что происходит.
+      placeholder: Расскажите, что случилось
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Шаги воспроизведения
+      description: Как воспроизвести проблему?
+      placeholder: |
+        1. Идём на '...'
+        2. Кликаем '...'
+        3. Видим ошибку
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+      description: Что вы ожидали увидеть?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Окружение
+      description: Заполните, пожалуйста, следующую информацию.
+      value: |
+        - ОС: [напр. Ubuntu 24.04, macOS 14, Windows 11]
+        - Версия / коммит: [напр. abc1234]
+        - PHP: [напр. 8.5.12]
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Подтверждение
+      options:
+        - label: Я поискал(а) существующие issues, и это не дубликат
+          required: true
