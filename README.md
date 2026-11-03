@@ -30,19 +30,10 @@ composer install
 cp .env.example .env
 ```
 
-Создайте таблицу новостей в SQLite:
+Примените миграции (создаст таблицу `news`):
 
 ```bash
-sqlite3 writable/codeigniter.db <<'SQL'
-CREATE TABLE IF NOT EXISTS news (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title VARCHAR(255) NOT NULL,
-  slug VARCHAR(255) NOT NULL,
-  body TEXT,
-  created_at DATETIME DEFAULT NULL,
-  updated_at DATETIME DEFAULT NULL
-);
-SQL
+php spark migrate
 ```
 
 Запуск:
