@@ -21,7 +21,7 @@
 
 ## Быстрый старт
 
-Требования: PHP 8.x с расширением SQLite3, Composer.
+Требования: PHP 8.4+ с расширением SQLite3, Composer.
 
 ```bash
 git clone https://github.com/proweb/codeigniter4-news.git
