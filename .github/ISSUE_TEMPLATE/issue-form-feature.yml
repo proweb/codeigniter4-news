@@ -1,0 +1,43 @@
+name: Feature request
+description: Предложите идею для проекта
+title: "[Feature]: "
+labels: ["✨ enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за предложение!
+  - type: textarea
+    id: problem
+    attributes:
+      label: Описание проблемы
+      description: Какую проблему решает эта фича? В чём боль?
+      placeholder: Неприятно, что...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Предлагаемое решение
+      description: Опишите желаемое поведение.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Рассматриваемые альтернативы
+      description: Обходные пути или другие подходы, которые вы пробовали.
+    validations:
+      required: false
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Масштаб
+      description: Насколько велики изменения?
+      options:
+        - Малый (как багфикс, < 100 строк)
+        - Средний (новый модуль, ~100-500 строк)
+        - Крупный (архитектурное изменение)
+      default: 0
+    validations:
+      required: true
