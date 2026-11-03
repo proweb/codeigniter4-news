@@ -11,7 +11,8 @@
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "mikey179/vfsstream": "^1.6",
-        "phpunit/phpunit": "^10.5"
+        "phpunit/phpunit": "^10.5",
+        "codeigniter/coding-standard": "^1.9"
     },
     "suggest": {
         "ext-fileinfo": "Improves mime type detection for files"
@@ -32,7 +33,9 @@
     },
     "scripts": {
         "dev": "php spark serve",
-        "test": "phpunit"
+        "test": "phpunit",
+        "cs": "php-cs-fixer check --verbose",
+        "cs-fix": "php-cs-fixer fix --verbose"
     },
     "support": {
         "issues": "https://github.com/proweb/codeigniter4-news/issues",
