@@ -1,4 +1,8 @@
-<?php $error_id = uniqid('error', true); ?>
+<?php
+use CodeIgniter\CodeIgniter;
+use Config\Services;
+
+$error_id = uniqid('error', true); ?>
 <!doctype html>
 <html>
 <head>
@@ -68,7 +72,7 @@
                                 } else {
                                     echo esc(static::cleanPath($row['file']) . ' : ' . $row['line']);
                                 }
-                                ?>
+				    ?>
 							<?php else : ?>
 								{PHP internal code}
 							<?php endif; ?>
@@ -83,14 +87,14 @@
 										<table cellspacing="0">
 
 										<?php
-                                        $params = null;
-                                        // Reflection by name is not available for closure function
-                                        if (substr($row['function'], -1) !== '}') {
-                                            $mirror = isset($row['class']) ? new \ReflectionMethod($row['class'], $row['function']) : new \ReflectionFunction($row['function']);
-                                            $params = $mirror->getParameters();
-                                        }
+				            $params = null;
+								    // Reflection by name is not available for closure function
+								    if (substr($row['function'], -1) !== '}') {
+								        $mirror = isset($row['class']) ? new ReflectionMethod($row['class'], $row['function']) : new ReflectionFunction($row['function']);
+								        $params = $mirror->getParameters();
+								    }
 
-                                        foreach ($row['args'] as $key => $value) : ?>
+								    foreach ($row['args'] as $key => $value) : ?>
 											<tr>
 												<td><code><?= esc(isset($params[$key]) ? '$' . $params[$key]->name : "#{$key}") ?></code></td>
 												<td><pre><?= esc(print_r($value, true)) ?></pre></td>
@@ -189,7 +193,7 @@
 
 			<!-- Request -->
 			<div class="content" id="request">
-				<?php $request = \Config\Services::request(); ?>
+				<?php $request = Services::request(); ?>
 
 				<table>
 					<tbody>
@@ -289,9 +293,9 @@
                                 continue;
                             }
 
-                            if (! is_array($value)) {
-                                $value = [$value];
-                            } ?>
+						    if (! is_array($value)) {
+						        $value = [$value];
+						    } ?>
 							<?php foreach ($value as $h) : ?>
 								<tr>
 									<td><?= esc($h->getName(), 'html') ?></td>
@@ -307,9 +311,9 @@
 
 			<!-- Response -->
 			<?php
-                $response = \Config\Services::response();
-                $response->setStatusCode(http_response_code());
-            ?>
+                $response = Services::response();
+$response->setStatusCode(http_response_code());
+?>
 			<div class="content" id="response">
 				<table>
 					<tr>
@@ -387,7 +391,7 @@
 			<p>
 				Displayed at <?= esc(date('H:i:sa')) ?> &mdash;
 				PHP: <?= esc(PHP_VERSION) ?>  &mdash;
-				CodeIgniter: <?= esc(\CodeIgniter\CodeIgniter::CI_VERSION) ?>
+				CodeIgniter: <?= esc(CodeIgniter::CI_VERSION) ?>
 			</p>
 
 		</div>

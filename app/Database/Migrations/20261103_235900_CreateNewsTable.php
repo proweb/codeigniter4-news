@@ -9,21 +9,21 @@ class CreateNewsTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'         => [
+            'id' => [
                 'type'           => 'INTEGER',
                 'auto_increment' => true,
             ],
-            'title'      => [
+            'title' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'null'       => false,
             ],
-            'slug'       => [
+            'slug' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'null'       => false,
             ],
-            'body'       => [
+            'body' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],

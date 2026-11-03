@@ -10,7 +10,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/news">News</a></li>
                 </ul>
-                <p>&copy; <?= date("Y"); ?> All rights reserved. Made with Codeigniter. by Sergey Mochalov</p>
+                <p>&copy; <?= date('Y'); ?> All rights reserved. Made with Codeigniter. by Sergey Mochalov</p>
 
             </div>
 
