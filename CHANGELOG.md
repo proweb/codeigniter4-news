@@ -5,8 +5,18 @@
 
 ## [Unreleased]
 
+## [v1.0.0] - 2026-11-04
+
 ### Added
 
 - Новостная лента: список, просмотр по slug, создание новостей
 - Страницы-заглушки для произвольных маршрутов
-- CodeIgniter 4.7.6, PHPUnit 10.5
+- Миграция таблицы `news` (quick start через `php spark migrate`)
+- CodeIgniter 4.7.6, PHPUnit 13.4
+- PHP CS Fixer с официальным стандартом CodeIgniter4
+- CI на GitHub Actions (PHP 8.4/8.5), Dependabot
+- Документация: README, CONTRIBUTING, SECURITY, Code of Conduct, формы issues
+
+### Requirements
+
+- PHP 8.4+, Composer
